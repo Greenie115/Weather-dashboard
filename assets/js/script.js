@@ -29,7 +29,17 @@ var geoURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + userCity + '&li
         }) 
         .then(function(data){
             console.log(data)
+            var temp = data.list[0].main.temp
+            console.log(temp)
+            var wind = data.list[0].wind.speed
+            console.log(wind)
+            var icon = data.list[0].weather[0].icon
+            console.log(icon)
+            var humidity = data.list[0].main.humidity
+            console.log(humidity)
         })
   }
+
+
 
 
