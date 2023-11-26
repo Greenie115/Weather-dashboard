@@ -35,24 +35,21 @@ function cityData() {
             var icon = data.list[0].weather[0].icon
             var humidity = data.list[0].main.humidity
             for(i = 0; i < forecastDays; i++){
-                weatherDateLi[i].innerText = data.list[i].main.temp
+                weatherDateLi[i].innerText = getDate(i)
+                function getDate() {
+                    var dt = new Date();
+                    dt.setDate(dt.getDate() + i);
+                    var stringDt = JSON.stringify(dt)
+                    var day = stringDt.slice(9, 11)
+                    var month = stringDt.slice(6 ,8)
+                    var year = stringDt.slice(1, 5)
+                    // console.log(stringDt.slice(1, 11));
+                   return day + '-' + month + '-' + year
+                };
             }
         })
-}
-
-
-function getDate() {
-    var dt = new Date();
-    dt.setDate(dt.getDate());
-    var stringDt = JSON.stringify(dt)
-    var day = stringDt.slice(9, 11)
-    var month = stringDt.slice(6 ,8)
-    var year = stringDt.slice(1, 5)
-    console.log(stringDt.slice(1, 11));
-    console.log(day, month, year)
-};
-
-getDate()
+    }
+    
 
 
 
