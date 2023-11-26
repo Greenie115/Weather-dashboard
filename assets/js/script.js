@@ -1,11 +1,13 @@
-var userCity = 'york'
+var userCity = 'oslo'
 var lat = 0
 var lon = 0
 var forecastDays = 5 //for creating a an array of days to display on the page
 var dailyForecastDiv = document.getElementById('dailyForecast')
 var weatherDayDiv = document.getElementsByClassName('weatherDay')
 var weatherDateLi = document.getElementsByClassName('date')
-var weather
+var weatherTempLi = document.getElementsByClassName('temp')
+var weatherWindSpeedLi = document.getElementsByClassName('windSpeed')
+var weatherHumidityLi = document.getElementsByClassName('humidity')
 
 var geoURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + userCity + '&limit=1&appid=b3a3fccb2b2f17b88a35bd51a8ab9db5'
 
@@ -22,7 +24,7 @@ fetch(geoURL)
     })
 
 function cityData() {
-    var queryURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=b3a3fccb2b2f17b88a35bd51a8ab9db5&units=metric'
+    var queryURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&cnt=5&appid=b3a3fccb2b2f17b88a35bd51a8ab9db5&units=metric'
 
     fetch(queryURL)
         .then(function (response) {
@@ -30,12 +32,11 @@ function cityData() {
         })
         .then(function (data) {
             console.log(data)
-            var temp = data.list[0].main.temp
-            var wind = data.list[0].wind.speed
             var icon = data.list[0].weather[0].icon
-            var humidity = data.list[0].main.humidity
             for(i = 0; i < forecastDays; i++){
                 weatherDateLi[i].innerText = getDate(i)
+                weatherWindSpeedLi[i].innerText = data.list[i].wind.speed
+                weatherHumidityLi[i].innerText = data.list[i].main.humidity
                 function getDate() {
                     var dt = new Date();
                     dt.setDate(dt.getDate() + i);
@@ -43,9 +44,9 @@ function cityData() {
                     var day = stringDt.slice(9, 11)
                     var month = stringDt.slice(6 ,8)
                     var year = stringDt.slice(1, 5)
-                    // console.log(stringDt.slice(1, 11));
                    return day + '-' + month + '-' + year
                 };
+
             }
         })
     }
