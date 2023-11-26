@@ -1,6 +1,8 @@
 var userCity = 'york'
 var lat = 0
-var lon = -0
+var lon = 0
+var forecastDays = 5 //for creating a an array of days to display on the page
+var dailyForecast = document.getElementById('dailyForecast')
 // var date = new Date()
 // var day = date.getDate()
 // var month = date.getMonth() + 1 
@@ -35,13 +37,16 @@ function cityData() {
         .then(function (data) {
             console.log(data)
             var temp = data.list[0].main.temp
-            console.log('temp: ' + temp)
             var wind = data.list[0].wind.speed
-            console.log('wind speed: ' + wind)
             var icon = data.list[0].weather[0].icon
-            console.log(icon)
             var humidity = data.list[0].main.humidity
-            console.log('humidity: ' + humidity + '%')
+            for(i = 0; i < forecastDays; i++){
+                var weatherDayDiv = document.createElement('div')
+                var weatherDayP = document.createElement('li')
+                weatherTemp = weatherDayP.innerText = data.list[i].main.temp
+                weatherDayDiv.appendChild(weatherDayP)
+                dailyForecast.append(weatherDayDiv)
+            }
         })
 }
 
