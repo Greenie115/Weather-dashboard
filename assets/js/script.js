@@ -47,7 +47,7 @@ function cityData() {
             for (i = 0; i < forecastDays; i++) {
                 weatherDateLi[i].innerText = 'Date: ' + getDate(i)
                 weatherWindSpeedLi[i].innerText = 'Wind Speed: ' + data.list[i].wind.speed
-                weatherHumidityLi[i].innerText = 'Humidity: ' + data.list[i].main.humidity
+                weatherHumidityLi[i].innerText = 'Humidity: ' + data.list[i].main.humidity + '%'
                 weatherTempLi[i].innerText = 'Temp: ' + data.list[i].main.temp + 'C'
                 function getDate() {
                     var dt = new Date();
