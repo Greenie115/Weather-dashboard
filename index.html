@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
     <header>
         <div class="bg">
@@ -15,9 +19,11 @@
 
 
     <nav>
-        <div>
-            <input type="text">
-            <button>Search</button>
+        <div class="container">
+            <div class="row py3 col-3">
+                <input type="text">
+                <button class="searchBtn">Search</button>
+            </div>
         </div>
     </nav>
 
@@ -27,8 +33,17 @@
 
 
     <section>
-        <div id="dailyForecast">
-            <div class="weatherDay">
+        <div class="container" id="dailyForecast">
+            <div class="weatherDay row">
+                <ul class="weatherData">
+                    <li class="date">Date:</li>
+                    <li class="icon">===</li>
+                    <li class="temp">Temp</li>
+                    <li class="windSpeed">Wind</li>
+                    <li class="humidity">Humidity</li>
+                </ul>
+            </div>
+            <div class="weatherDay row">
                 <ul class="weatherData">
                     <li class="date"></li>
                     <li class="icon"></li>
@@ -37,15 +52,6 @@
                     <li class="humidity"></li>
                 </ul>
             </div>
-            <div class="weatherDay">
-                <ul class="weatherData">
-                    <li class="date"></li>
-                    <li class="icon"></li>
-                    <li class="temp"></li>
-                    <li class="windSpeed"></li>
-                    <li class="humidity"></li>
-                </ul>
-                </div>
             </div>
             <div class="weatherDay">
                 <ul class="weatherData">
@@ -76,7 +82,10 @@
             </div>
         </div>
     </section>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

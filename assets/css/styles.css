@@ -14,6 +14,10 @@ header div{
     padding: 2vh;
 }
 
+li{
+  list-style: none;
+}
+
 .bg {
     width: 100%;
     height: 5vh;
@@ -48,4 +52,15 @@ header div{
     100% {
       background-position: 0% 50%;
     }
+  }
+
+  #dailyForecast {
+    display: block;
+    background-color: #ff357f;
+  }
+
+  .weatherDay{
+    background-color: lightblue;
+    margin: 5px;
+    width: 200px;
   }
