@@ -60,11 +60,10 @@ hr{
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "search current-day current-day current-day current-day current-day"
     "search current-day current-day current-day current-day current-day"
     "search day0 day1 day2 day3 day4";
 }
