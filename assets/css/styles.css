@@ -1,12 +1,12 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 h1,
 h2,
-h3{
-    text-align: center;
+h3 {
+  text-align: center;
 }
 
 /* header div{
@@ -14,7 +14,7 @@ h3{
     padding: 2vh;
 } */
 
-li{
+li {
   list-style: none;
 }
 
@@ -29,7 +29,7 @@ li{
     -webkit-animation: AnimateBG 20s ease infinite;
             animation: AnimateBG 20s ease infinite;
   } */
-  
+/*   
   @-webkit-keyframes AnimateBG {
     0% {
       background-position: 0% 50%;
@@ -57,36 +57,57 @@ li{
   #dailyForecast {
     display: block;
     background-color: #ff357f;
-  }
+  } */
 
-  /* .weatherDay{
+/* .weatherDay{
     background-color: lightblue;
     margin: 5px;
     width: 200px;
   } */
 
-  .container {  display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "search current-day current-day current-day current-day current-day"
-      "search current-day current-day current-day current-day current-day"
-      "search day0 day1 day2 day3 day4";
-  }
-  
-  .search { grid-area: search; }
-  
-  .current-day { grid-area: current-day; }
-  
-  .day0 { grid-area: day0; }
-  
-  .day1 { grid-area: day1; }
-  
-  .day2 { grid-area: day2; }
-  
-  .day3 { grid-area: day3; }
-  
-  .day4 { grid-area: day4; }
-  
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "search current-day current-day current-day current-day current-day"
+    "search current-day current-day current-day current-day current-day"
+    "search day0 day1 day2 day3 day4";
+}
+
+.search {
+  grid-area: search;
+  background-color: aqua;
+}
+
+.current-day {
+  grid-area: current-day;
+  background-color: blueviolet;
+}
+
+.day0 {
+  grid-area: day0;
+  background-color: brown;
+}
+
+.day1 {
+  grid-area: day1;
+  background-color: brown;
+}
+
+.day2 {
+  grid-area: day2;
+  background-color: brown;
+}
+
+.day3 {
+  grid-area: day3;
+  background-color: brown;
+}
+
+.day4 {
+  grid-area: day4;
+  background-color: brown;
+}
