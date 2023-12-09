@@ -34,6 +34,23 @@ ul{
   padding-top: 1vh;
 }
 
+input,
+button{
+  width: 200px;
+  margin: 1vh;
+}
+
+button{
+  background-color: var(--header);
+  color: white;
+}
+
+hr{
+  border: none;
+  background-color: black;
+  height: 2px;
+}
+
 .weatherDay{
     background-color: var(--main-pop);
     margin: 2vh;
