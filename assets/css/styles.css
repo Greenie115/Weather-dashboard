@@ -10,6 +10,10 @@
   margin: 0;
 }
 
+body{
+  background-color: var(--body-colour);
+}
+
 h1,
 h2,
 h3 {
@@ -19,16 +23,21 @@ h3 {
 header div{
     background-color: var(--highlight);
     padding: 2vh;
+    margin-bottom: 2vh;
 }
  
 li {
   list-style: none;
 }
 
+ul{
+  padding-top: 1vh;
+}
+
 .weatherDay{
     background-color: var(--main-pop);
-    margin: 5px;
-    width: 200px;
+    margin: 2vh;
+    width: 13vw;
   }
 
 .container {
@@ -46,6 +55,7 @@ li {
 .search {
   grid-area: search;
   background-color: var(--body-colour);
+  margin-right: 1vw;
 }
 
 .current-day {
