@@ -9,6 +9,7 @@ var weatherTempLi = document.getElementsByClassName('temp')
 var weatherWindSpeedLi = document.getElementsByClassName('windSpeed')
 var weatherHumidityLi = document.getElementsByClassName('humidity')
 var searchBtn = document.getElementById('searchBtn')
+var currentDayHeader = document.getElementById('currentDayHeder')
 
 
 function getUserCity(){
@@ -58,7 +59,7 @@ function cityData() {
                 };
 
             }
-            
+            currentDayHeader.innerText = userCity.value
         })
 }
 
