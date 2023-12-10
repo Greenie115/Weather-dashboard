@@ -1,7 +1,9 @@
-var userCity = document.getElementById('userCity')
+// API variables
 var lat = 0
 var lon = 0
 var forecastDays = 6
+
+// DOM manipulation 
 var dailyForecastDiv = document.getElementById('dailyForecast')
 var weatherDayDiv = document.getElementsByClassName('weatherDay')
 var weatherDateLi = document.getElementsByClassName('date')
@@ -9,11 +11,15 @@ var weatherTempLi = document.getElementsByClassName('temp')
 var weatherWindSpeedLi = document.getElementsByClassName('windSpeed')
 var weatherHumidityLi = document.getElementsByClassName('humidity')
 var weatherIconLi = document.getElementsByClassName('icon')
-var searchBtn = document.getElementById('searchBtn')
 var currentDayHeader = document.getElementById('currentDayHeder')
 var weatherDataEl = document.getElementsByClassName('weatherData')
 
+// User inputs
+var localSearchBtn = document.getElementById('localSearch')
+var searchBtn = document.getElementById('searchBtn')
+var userCity = document.getElementById('userCity')
 
+// GEO API converter
 function getUserCity() {
     var geoURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + userCity.value + '&limit=1&appid=b3a3fccb2b2f17b88a35bd51a8ab9db5'
     fetch(geoURL)
@@ -29,7 +35,7 @@ function getUserCity() {
 
 searchBtn.addEventListener('click', getUserCity)
 
-
+// Openweather API fetch
 function cityData() {
     var queryURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&cnt=6&appid=b3a3fccb2b2f17b88a35bd51a8ab9db5&units=metric'
 
@@ -63,6 +69,9 @@ function cityData() {
 
             }
             currentDayHeader.innerText = userCity.value
+            var savedSearch = document.createElement('button')
+            savedSearch.innerText = userCity.value
+            localSearchBtn.append(savedSearch)
         })
 }
 
