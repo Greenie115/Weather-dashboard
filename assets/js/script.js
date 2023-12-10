@@ -11,9 +11,10 @@ var weatherHumidityLi = document.getElementsByClassName('humidity')
 var weatherIconLi = document.getElementsByClassName('icon')
 var searchBtn = document.getElementById('searchBtn')
 var currentDayHeader = document.getElementById('currentDayHeder')
+var weatherDataEl = document.getElementsByClassName('weatherData')
 
 
-function getUserCity(){
+function getUserCity() {
     var geoURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + userCity.value + '&limit=1&appid=b3a3fccb2b2f17b88a35bd51a8ab9db5'
     fetch(geoURL)
         .then(function (response) {
@@ -32,7 +33,7 @@ searchBtn.addEventListener('click', getUserCity)
 function cityData() {
     var queryURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&cnt=6&appid=b3a3fccb2b2f17b88a35bd51a8ab9db5&units=metric'
 
-    if(!userCity){
+    if (!userCity) {
         weatherDateLi.innerText = ''
         weatherWindSpeedLi.innerText = ''
         weatherHumidityLi.innerText = ''
@@ -42,7 +43,6 @@ function cityData() {
             return response.json()
         })
         .then(function (data) {
-            console.log(data)
             for (i = 0; i < forecastDays; i++) {
                 var weatherIcon = data.list[i].weather[0].icon
                 weatherDateLi[i].innerText = 'Date: ' + getDate(i)
@@ -50,6 +50,7 @@ function cityData() {
                 weatherHumidityLi[i].innerText = 'Humidity: ' + data.list[i].main.humidity + '%'
                 weatherTempLi[i].innerText = 'Temp: ' + data.list[i].main.temp + 'C'
                 weatherIconLi[i].setAttribute('src', 'https://openweathermap.org/img/wn/' + weatherIcon + '@2x.png')
+                weatherIconLi[i].classList.remove('hide')
                 function getDate() {
                     var dt = new Date();
                     dt.setDate(dt.getDate() + i);
